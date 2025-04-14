@@ -1,5 +1,6 @@
 package co.edu.Uceva.MicroServicioMensajeria.dto;
 
+import co.edu.Uceva.MicroServicioMensajeria.model.Mensajeria;
 import lombok.Getter;
 
 import java.time.LocalDate;
@@ -19,4 +20,15 @@ public class MensajeResponseDTO {
         this.cuerpoCorreo = cuerpoCorreo;
         this.fechaEnvio = fechaEnvio;
     }
+
+    public static MensajeResponseDTO fromModel(Mensajeria mensaje) {
+        return new MensajeResponseDTO(
+                mensaje.getId(),
+                mensaje.getAsunto(),
+                mensaje.getCorreoDestinatario(),
+                mensaje.getCuerpoCorreo(),
+                mensaje.getFechaEnvio()
+        );
+    }
+
 }

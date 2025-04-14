@@ -6,18 +6,22 @@ package co.edu.Uceva.MicroServicioMensajeria.dto;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 public class RespuestaMensajeDTO {
-
     private String mensaje;
-    private Object datos;
+    private MensajeResponseDTO datos;
 
-    public RespuestaMensajeDTO() {
-    }
-
-    public RespuestaMensajeDTO(String mensaje, Object datos) {
+    public RespuestaMensajeDTO(String mensaje, MensajeResponseDTO datos) {
         this.mensaje = mensaje;
         this.datos = datos;
     }
+
+    public RespuestaMensajeDTO(String mensaje) {
+        this.mensaje = mensaje;
+        this.datos = null;
+    }
 }
+

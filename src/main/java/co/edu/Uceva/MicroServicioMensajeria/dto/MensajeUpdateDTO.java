@@ -11,14 +11,14 @@ import java.time.LocalDate;
 @Setter
 public class MensajeUpdateDTO {
 
-    @NotBlank(message = "El asunto no puede estar vacio")
+    @NotBlank(message = "El asunto es obligatorio, No puede estar vacio")
     private String asunto;
 
-    @NotBlank(message = "El correo es obligatorio")
-    @Email(message = "Correo no valido")
+    @NotBlank(message = "El correo es obligatorio, No puede estar vacio")
+    @Email(message = "Ingrese un correo valido")
     private String correoDestinatario;
 
-    @NotBlank(message = "El cuerpo del mensaje no puede estar vacio")
+    @NotBlank(message = "El cuerpo del correo es obligatorio, No puede estar vacio")
     private String cuerpoCorreo;
 
     private LocalDate fechaEnvio;

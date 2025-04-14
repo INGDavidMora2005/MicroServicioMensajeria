@@ -12,15 +12,15 @@ import java.time.LocalDate;
 @Setter
 public class MensajeRequestDTO {
 
-    @NotBlank(message = "El asunto es obligatorio")
-    @Size(max = 100, message = "El asunto no debe superar los 100 caracteres")
+    @NotBlank(message = "El asunto es obligatorio, No puede estar vacio.")
+    @Size(max = 100, message = "El asunto no debe superar los 100 caracteres.")
     private String asunto;
 
-    @NotBlank(message = "El correo del destinatario es obligatorio")
-    @Email(message = "Correo invalido")
+    @NotBlank(message = "El correo del destinatario es obligatorio, No puede estar vacio.")
+    @Email(message = "El correo debe tener un formato valido.")
     private String correoDestinatario;
 
-    @NotBlank(message = "El cuerpo del correo es obligatorio")
+    @NotBlank(message = "El cuerpo del correo es obligatorio, No puede estar vacio.")
     private String cuerpoCorreo;
 
     private LocalDate fechaEnvio;
