@@ -1,0 +1,35 @@
+
+services:
+  mensajeria-service:
+    image: ingdavid2005/mensajeria-service:latest
+    container_name: mensajeria-service
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    environment:
+      - DB_USER=devdb
+      - DB_PASS=a1b2c3d4e5
+      - JPA_DDL=update
+      - DB_HOST=jdbc:postgresql://db:5432/Mensajeria_db
+    networks:
+      - mynetwork
+
+  db:
+    image: postgres:latest
+    container_name: db
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: Mensajeria_db
+      POSTGRES_USER: devdb
+      POSTGRES_PASSWORD: a1b2c3d4e5
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge
